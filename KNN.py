@@ -23,9 +23,9 @@ train_parquet_file = pq.ParquetFile('train.parquet')
 test_parquet_file = pq.ParquetFile('test.parquet')
 df_batches = []
 # YOU CAN TUNE batch_size TO YOUR NEEDS. IT REPRESENTS THE ROW NUMBER FOR EACH BATCH.
-for batch in train_parquet_file.iter_batches(batch_size=65536*50):
+for batch in train_parquet_file.iter_batches(batch_size=65536*1):
     df_batches.append(batch.to_pandas())
-for batch in test_parquet_file.iter_batches(batch_size=65536*50):
+for batch in test_parquet_file.iter_batches(batch_size=65536*1):
     df_batches.append(batch.to_pandas())
 
 print(len(df_batches))
