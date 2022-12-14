@@ -29,8 +29,11 @@ for batch in test_parquet_file.iter_batches(batch_size=65536*100):
     df_batches.append(batch.to_pandas())
     
 algo = prediction_algorithms.KNNBasic()
+print('start')
+i = 0
 for df in df_batches:
-
+    print(i)
+    i+=1
 
     n_folds = 5
 
