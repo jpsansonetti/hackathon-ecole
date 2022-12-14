@@ -44,6 +44,6 @@ for df in df_batches:
     data = Dataset.load_from_df(df[['session', 'aid', 'type']], reader)
 
     # We can now use this dataset as we please, e.g. calling cross_validate
-    res_KNNBasic = cross_validate(algo, data, cv=n_folds, n_jobs=-1)
+    res_KNNBasic = cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=n_folds, n_jobs=-1)
 
 
